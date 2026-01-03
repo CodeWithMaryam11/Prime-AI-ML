@@ -1,0 +1,115 @@
+#QNO1-SOLUTION:
+#Taking user inputs
+name = input("Enter your name:")
+age = int(input("enter your age:"))
+#Printing the formatted message
+print(f"Hello! {name}, you are {age} years old.")
+
+
+#QNO2-SOLUTION:
+#Taking user inputs
+a = float(input("Enter the first number:"))
+b = float(input("Enter the second number:"))
+print(a+b) #printing sum of these 2 numbers
+print(a-b) #printing difference of these 2 numbers
+print(a*b) #printing product of these 2 numbers
+print(a/b) #printing quotient of these 2 numbers
+
+
+#QNO3-SOLUTION:
+#Taking user inputs
+a = int(input("Enter the first integer number:"))
+b = int(input("Enter the second integer number:"))
+c = float(input("Enter a float number:"))
+#converting these integer inputs in float
+f_a = float(a)
+f_b = float(b)
+f_c = float(c)
+#calculating average
+avg = (f_a + f_b + f_c )/3 
+#printing the average of these three numbers
+print(f"The average of {f_a}, {f_b}, {f_c} is {avg}") 
+
+
+#QNO4-SOLUTION:
+#Taking user inputs
+a = input("Enter the number:")
+
+#converting the input in int, float and string
+i_a = int(a)
+f_a = float(a)
+s_a = str(a)
+
+#printing the values of a along with its type
+print(f"The value of a is {i_a}, and the type of {a} is, {type(i_a)}") 
+print(f"The value of a is {f_a}, and the type of {a} is, {type(f_a)}") 
+print(f"The value of a is {s_a}, and the type of {a} is, {type(s_a)}") 
+
+
+#QNO5-SOLUTION:
+x = 10 + 3 * 2 ** 2
+print("The result of the expression is",x)
+Explanation:
+The output is 22 due to the order of operations:
+1. Exponentiation (2**2) = 4
+2. Multiplication (3*4) = 12
+3. Addition (10+12) = 22
+
+
+#QNO6-SOLUTION:
+#Taking 2 numbers from user
+a = input("Enter the value of first number:")
+b = input("Enter the value of second number:")
+#swapping the values of a & b
+a,b = b, a
+#printing the swapped values
+print(f"After Swapping , a = {a}, b = {b}")
+
+
+#QNO7-SOLUTION:
+#Taking the temperature in celsius from user
+c = input("Enter the temperature in celsius:")
+#Converting the user input to float
+c_f = float(c)
+#Conversion formula
+FarenheitTemp = (c_f *(9/5)) + 32
+#Printing the temperature in Farenheit
+print(f"The Temperature in Farenheit is {FarenheitTemp}")
+
+
+#QNO8-SOLUTION:
+#Taking the radius of a circle from user
+r = float(input("Enter the Radius:"))
+#Formulla for calculating the area of a circle
+Area = 3.14 * r ** 2
+#Printing the Area of a circle for the given radius
+print(f"The Area of a Circle is {Area}")
+
+
+#QNO9-SOLUTION:
+#Taking the user inputs for Principal, Rate & Time
+p = input("Enter the Principal:")
+r = input("Enter the Rate:")
+t = input("Enter the Time:")
+#Converting the inputs into float type.
+p_f = float(p)
+r_f = float(r)
+t_f = float(t)
+#Formulla for calculating the Simple interest
+SI = (p_f * r_f * t_f)/100
+#Printing the Simple interest for the given values
+print(f"The Simple interest is {SI}")
+
+
+#QNO10-SOLUTION:
+#Take input from user in decimal
+num = input("Enter a decimal number: ")
+#Convert the user input into float
+num_f = float(num)
+#Get the Integer part
+int_part = int(num_f)
+#Subtracting the whole number from the original float to get the fractional part
+fraction_part = num_f - int_part
+#Printing the results
+print(f"Integer part: {int_part}")
+print(f"Fractional part: {fraction_part}")
