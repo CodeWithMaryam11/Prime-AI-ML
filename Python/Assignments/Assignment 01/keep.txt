@@ -1,3 +1,0 @@
-# Python Module
-
-This folder contains Python assignments, practice exercises, and learning work.
