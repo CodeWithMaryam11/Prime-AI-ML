@@ -1,0 +1,161 @@
+#QNO1-SOLUTION
+salary = int(input("Enter your salary: "))
+
+if salary < 30000:
+    tax_rate = "5%"
+elif 30000 <= salary <= 70000:
+    tax_rate = "15%"
+else:
+    tax_rate = "25%"
+
+print(f"Your final tax rate is: {tax_rate}")
+
+
+#QNO2-SOLUTION
+def print_evens(a, b):
+    # b + 1 is used so that 'b' is included in the loop
+    for i in range(a, b + 1):
+        if i % 2 == 0:
+            print(i)
+
+# Example call
+print_evens(10, 20)
+
+
+#QNO3-solution
+def print_digits(n):
+    digits = []
+    # Step 1: Extract digits using the assignment hint
+    while n > 0:
+        digit = n % 10    # Isolation: Get the right-most digit
+        digits.append(digit)
+        n = n // 10       # Deletion: Remove the right-most digit
+    
+    # Step 2: Reverse the list to get the original order (3, 1, 2)
+    digits.reverse()
+    
+    # Step 3: Print them
+    for d in digits:
+        print(d)
+# Test
+print_digits(312)
+
+
+#QNO4-solution
+def count_digits(n):
+    count = 0
+    # Handle the case if the user enters 0
+   if n == 0:
+        return 1
+   while n > 0:
+        n = n // 10  # Remove the last digit
+        count = count + 1  # Increment the counter
+   return count
+# Example
+print(count_digits(675438)) 
+
+
+#QNO5-solution
+def sum_digits(n):
+    total = 0
+    while n > 0:
+        digit = n % 10
+        total += digit
+        n = n // 10
+    return total
+
+print(sum_digits(7886))
+
+
+#QNO6-solution
+print("The numbers from 1-100 that are divisible by 5 and 100 are:")
+for i in range(1, 101):
+    if i % 3 == 0 and i % 5 == 0:
+        print(i)
+
+
+#QNO7-solution
+while True:
+    n = input("Enter a number (or 'Quit' to exit): ")
+ # Condition to stop the loop
+    if n == "Quit":
+        print("Program stopped.")
+        break
+ # Convert the input to a number to check positive/negative
+    num = float(n)
+ # Check if positive or negative
+    if num > 0:
+        print("positive")
+    elif num < 0:
+        print("negative")
+    else:
+        print("The number is zero")
+
+
+
+#QNO8-solution
+def calculator(a, b, operation):
+    """Function to perform arithmetic based on the operation parameter."""
+    if operation == '+':
+        return a + b
+    elif operation == '-':
+        return a - b
+    elif operation == '*':
+        return a * b
+    elif operation == '/':
+        # Check for division by zero to prevent program crash
+        if b != 0:
+            return a / b
+        else:
+            return "Error: Cannot divide by zero"
+    else:
+        return "Invalid Operation"
+# --- TAKING USER INPUT ---
+print("--- Simple Calculator ---")
+# We use float() so the user can enter decimals like 10.5
+num1 = float(input("Enter first number (a): "))
+num2 = float(input("Enter second number (b): "))
+op = input("Enter operation (+, -, *, /): ")
+# Calling the function with the user's inputs
+result = calculator(num1, num2, op)
+print(f"Result: {result}")
+
+
+
+#QNO9-solution
+def is_prime(n):
+    # Prime numbers must be 2 or greater
+    if n < 2:
+        return False
+    # Check all numbers from 2 up to (n-1)
+    for i in range(2, n):
+        if n % i == 0:
+            # If divisible, it's not prime
+            return False
+            # If the loop finishes without finding a divisor, it's prime
+    return True
+# --- TAKING USER INPUT ---
+user_num = int(input("Enter a number to check if it's prime: "))
+# Calling the function and printing the result
+if is_prime(user_num):
+    print(f"True, {user_num} is a prime number.")
+else:
+    print(f"False, {user_num} is not a prime number.")
+
+
+
+#QNO10-solution
+# You decide the secret number
+secret_number = 7 
+print("--- Welcome to the Guessing Game ---")
+while True:
+# Taking user input inside the loop so they can try again
+    guess = int(input("Guess the secret number: "))
+    
+    if guess > secret_number:
+        print("Too high")
+    elif guess < secret_number:
+        print("Too low")
+    elif guess == secret_number:
+        print("Correct!")
+        break  # This stops the loop because the user won
