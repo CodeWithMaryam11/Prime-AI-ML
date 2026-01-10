@@ -1,0 +1,276 @@
+#QNO1-SOLUTION:
+class BankAccount:
+    def __init__(self, account_number, owner_name, balance=0):
+        self.account_number = account_number
+        self.owner_name = owner_name
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited: {amount}. New Balance: {self.balance}") 
+        else:
+            print("Deposit must be positive.")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            print(f"Withdrew: {amount}. Remaining Balance: {self.balance}") 
+        else:
+            print("Invalid withdrawal amount or insufficient funds!")
+
+    def check_balance(self):
+        print(f"Maryam your Account number is {self.account_number}  and the Balance is: {self.balance}") 
+
+
+acc = BankAccount("12345", "Maryam", 100000)
+acc.deposit(5000)
+acc.withdraw(2000)
+
+
+#QNO2-SOLUTION:
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.reviews = []
+
+    def add_review(self, review):
+        self.reviews.append(review) 
+    def count_reviews(self):
+        return len(self.reviews)
+
+    def display_all_reviews(self):
+        print(f"Reviews for {self.title}:") 
+        for r in self.reviews:
+            print(f"- {r}")
+
+my_book = Book("Python Basics", "IUST")
+my_book.add_review("Great for beginners!")
+my_book.add_review("Very clear examples.")
+my_book.display_all_reviews()
+print(f"Total reviews: {my_book.count_reviews()}")
+
+
+#QNO3-SOLUTION:
+class Student:
+    def __init__(self, name, roll_no, marks):
+        self.set_name(name)
+        self.set_roll_no(roll_no)
+        self.set_marks(marks)
+
+    # Setters
+    def set_name(self, name):
+        if name: self.__name = name
+        else: raise ValueError("Name cannot be empty")
+
+    def set_roll_no(self, roll_no):
+        if 1 <= roll_no <= 100: self.__roll_no = roll_no
+        else: 
+            raise ValueError("Roll number must be 1-100")
+
+    def set_marks(self, marks):
+        if marks >= 0: self.__marks = marks
+        else: raise ValueError("Marks cannot be negative")
+
+    def get_info(self):
+        return f"Student: {self.__name}, Rollno:{self.__roll_no}, Marks: {self.__marks}"
+
+
+stu1 = Student("Maryam", 74, 100)
+stu2 = Student("Maimoona",70, 95)
+stu3 = Student("Numan", 69, 85)
+stu4 = Student("Faisal",1, 80)
+print(stu1.get_info())
+print(stu2.get_info())
+print(stu3.get_info())
+print(stu4.get_info())
+
+
+#QNO4-SOLUTION:
+import math
+
+class Shape:
+    def area(self): 
+        return 0
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self): 
+        return math.pi * (self.radius ** 2)
+
+class Rectangle(Shape):
+    def __init__(self, l, w):
+        self.l, self.w = l, w
+    def area(self):
+        return self.l * self.w
+
+shapes = [Circle(5), Rectangle(10, 5)]
+for s in shapes:
+    print(f"Area: {s.area():.2f}")
+
+
+#QNO5-SOLUTION:
+class Vehicle:
+    def __init__(self, brand, model): 
+        self.brand = brand
+        self.model = model
+
+class Car(Vehicle):
+    def __init__(self, brand, model, seats):
+        super().__init__(brand, model)
+        self.seats = seats 
+
+class Bike(Vehicle):
+    def __init__(self, brand, model, engine_cc):
+        super().__init__(brand, model)
+        self.engine_cc = engine_cc 
+
+car1 = Car("Toyota", "Camry", 5)
+car2 = Car("Audi", "Volkswagen", 5)
+print(f"Car: {car1.brand}, Seats: {car1.seats}")
+print(f"Car: {car2.brand}, Seats: {car2.seats}")
+
+
+#QNO6-SOLUTION:
+from abc import ABC, abstractmethod 
+
+class Employee(ABC):
+    @abstractmethod
+    def calculate_salary(self): 
+        pass
+
+class Intern(Employee):
+    def calculate_salary(self):
+        return 1000
+
+class FullTimeEmployee(Employee):
+    def calculate_salary(self): 
+        return 5000
+
+emp1 = FullTimeEmployee()
+emp2 = Intern()
+print(f"Salary: {emp1.calculate_salary()}")
+print(f"Salary: {emp2.calculate_salary()}")
+
+
+#QNO7-SOLUTION:
+class Person:
+    def __init__(self, name, age=None, address=None):
+        self.name = name
+        self.age = age
+        self.address = address
+
+p1 = Person("Rahul") 
+p2 = Person("Harshita", 25)
+p3 = Person("Amit", 30, "Delhi") 
+print(f"{p1.name}, {p2.age}, {p3.address}")
+
+
+#QNO8-SOLUTION:
+class Player:
+    player_count = 0 
+    def __init__(self, name, level):
+        self.name = name 
+        self.level = level 
+        Player.player_count += 1
+
+p1 = Player("Ace", 10)
+p2 = Player("Neo", 15)
+p3 = Player("Sam", 20)
+print(f"Players created: {Player.player_count}")
+
+
+#QNO9-SOLUTION:
+class Herbivore:
+    def eat_plants(self):
+        print("Eating plants...") 
+class Carnivore:
+    def eat_meat(self): 
+        print("Eating meat...") 
+
+class Bear(Herbivore, Carnivore): 
+    def info(self):
+        print("Bears eat both!")
+
+b = Bear()
+b.eat_plants()
+b.eat_meat()
+acc.check_balance()
+
+
+#QNO10-SOLUTION:
+class User:
+    """Represents a person participating in the chat."""
+    def __init__(self, username):
+        self.username = username
+
+class Message:
+    """Represents an individual text message sent by a user."""
+    def __init__(self, sender_name, content):
+        self.sender_name = sender_name
+        self.content = content
+
+class ChatRoom:
+    """Manages users and the history of messages within a room."""
+    def __init__(self, room_name):
+        self.room_name = room_name
+        self.users = []           # List of User objects currently in the room
+        self.message_history = []  # List of Message objects
+
+    def join_room(self, user):
+        """Adds a user to the active users list."""
+        if user not in self.users:
+            self.users.append(user)
+            print(f"{user.username} has joined the room: {self.room_name}")
+
+    def leave_room(self, user):
+        """Removes a user from the active users list."""
+        if user in self.users:
+            self.users.remove(user)
+            print(f"{user.username} has left the room: {self.room_name}")
+        else:
+            print(f"Error: {user.username} is not in this room.")
+
+    def send_message(self, user, text):
+        """Creates and stores a message only if the user is in the room."""
+        if user in self.users:
+            new_msg = Message(user.username, text)
+            self.message_history.append(new_msg)
+        else:
+            print(f"Access Denied: {user.username} must join the room to chat.")
+
+    def view_history(self):
+        """Displays all messages sent in the room."""
+        print(f"\n--- Chat History for '{self.room_name}' ---")
+        if not self.message_history:
+            print("No messages yet.")
+        for msg in self.message_history:
+            print(f"[{msg.sender_name}]: {msg.content}")
+        print("------------------------------------------\n")
+
+
+# 1. Create the ChatRoom
+my_room = ChatRoom("Python Developers")
+
+# 2. Create Users
+user1 = User("Micky")
+user2 = User("Misti")
+
+# 3. Users join the room
+my_room.join_room(user1)
+my_room.join_room(user2)
+
+# 4. Sending messages
+my_room.send_message(user1, "Hey everyone! How are you doing?")
+my_room.send_message(user2, "Hello, Micky. Doing Great. How about you?")
+
+# 5. Viewing history
+my_room.view_history()
+
+# 6. User leaves the room
+my_room.leave_room(user1)
+
+# 7. Attempting to send a message after leaving (Should fail)
+my_room.send_message(user1, "Can you still hear me?")
