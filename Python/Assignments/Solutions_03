@@ -1,0 +1,161 @@
+#QNO1-SOLUTION:
+
+user_str = input("Enter a string: ")
+# Manual reverse using a loop as suggested in the hint
+reversed_str = ""
+for char in user_str:
+    reversed_str = char + reversed_str
+
+if user_str == reversed_str:
+    print(f"'{user_str}' is a palindrome.")
+else:
+    print(f"'{user_str}' is not a palindrome.")
+
+
+#QNO2-SOLUTION:
+numbers = [10, 20, 30, 40, 50]
+total_sum = 0
+
+for num in numbers:
+    total_sum += num
+
+# average = total sum / total count 
+avg = total_sum / len(numbers)
+print("Average:", avg)
+
+
+#QNO3-SOLUTION:
+# Assuming user enters numbers separated by spaces
+list1 = list(map(int, input("Enter first list numbers: ").split()))
+list2 = list(map(int, input("Enter second list numbers: ").split()))
+
+# Merging using the + operator [cite: 19]
+merged_list = list1 + list2
+merged_list.sort() # Sorting in ascending order
+print("Merged and Sorted List:", merged_list)
+
+
+#QNO4-SOLUTION:
+original_tup = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+evens = []
+odds = []
+
+for num in original_tup:
+    if num % 2 == 0:
+        evens.append(num)
+    else:
+        odds.append(num)
+
+# Converting back to tuples
+print("Even Tuple:", tuple(evens))
+print("Odd Tuple:", tuple(odds))
+
+
+#QNO5-SOLUTION:
+students = {}  # Initializing the empty dictionary 
+
+while True:
+    print("\n--- Student Management System ---")
+    print("A: Add a student")
+    print("B: Update marks")
+    print("C: Search for a student")
+    print("D: Display all students")
+    print("Q: Quit")
+    
+    # .upper() ensures that 'a' or 'A' both work 
+    choice = input("Enter your choice: ").upper()
+
+    if choice == 'A':
+        name = input("Enter student name: ")
+        marks = int(input(f"Enter marks for {name}: "))
+        students[name] = marks  # Adding key-value pair 
+        print(f"Added {name} successfully.")
+
+    elif choice == 'B':
+        name = input("Enter student name to update: ")
+        if name in students:
+            new_marks = int(input("Enter new marks: "))
+            students[name] = new_marks  # Updating mutable dictionary 
+        else:
+            print("Student not found.")
+
+    elif choice == 'C':
+        name = input("Enter name to search: ")
+        # .get() is safer as it returns None if key doesn't exist 
+        result = students.get(name)
+        if result is not None:
+            print(f"Found: {name} - {result} marks")
+        else:
+            print("Student not found.")
+
+    elif choice == 'D':
+        # Checking if dictionary has data before printing
+        if not students:
+            print("The list is currently empty. Add students first!")
+        else:
+            print("\n--- Current Student Records ---")
+            # Loop through key-value pairs using .items() 
+            for name, marks in students.items():
+                print(f"Name: {name} | Marks: {marks}")
+
+    elif choice == 'Q':
+        print("Exiting program.")
+        break
+    else:
+        print("Invalid choice, please try again.")
+
+
+#QNO6-SOLUTION:
+words = ["apple", "banana", "kiwi", "cherry", "mango", "orange","strawberry","grapes"]
+word_lengths = {}
+
+for word in words:
+    word_lengths[word] = len(word) # Using len() for each word 
+
+print(word_lengths)
+
+
+#QNO7-SOLUTION:
+text = input("Enter a string: ")
+space_count = 0
+
+for char in text:
+    if char == " ":
+        space_count += 1
+
+print(f"Total spaces: {space_count}")
+
+
+#QNO8-SOLUTION:
+list1 = input("Enter the first list:")
+list2 = input("Enter the second list:")
+
+# Convert to sets and find intersection
+common = set(list1).intersection(set(list2))
+
+if len(common) == 0:
+    print("The lists share no common elements.")
+else:
+    print(f"Common elements found: {common}")
+
+
+#QNO9-SOLUTION:
+nums = input("Enter the numbers that you want in your list:")
+seen = set()
+duplicates = set()
+
+for n in nums:
+    if n in seen:
+        duplicates.add(n) # If already seen, it's a duplicate 
+    else:
+        seen.add(n) # Track unique elements
+print("Duplicates:", duplicates)
+
+
+#QNO10-SOLUTION:
+user_input = input("Enter a string: ")
+# Sets automatically store unique values 
+unique_chars = set(user_input)
+
+print(f"Unique characters: {unique_chars}")
+print(f"Count of unique characters: {len(unique_chars)}") 
