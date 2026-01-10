@@ -1,0 +1,73 @@
+#QNO1-SOLUTION:
+with open("names.txt", "w") as f:
+    #Writes 5 names entered by the user
+    for i in range(5):
+        name = input(f"Enter name {i+1}: ")
+        f.write(name + "\n") 
+#Opens the same file in read mode and prints all names
+with open("names.txt", "r") as f: 
+    print("\nNames in file:")
+    print(f.read())
+
+
+#QNO2-SOLUTION:
+with open("sample.txt", "a") as f: 
+    #Adds a new log entry
+    f.write("Program run successfully\n") 
+#Opens the file in read mode and prints all logs
+with open("sample.txt", "r") as f: 
+    print("Log History:")
+    print(f.read()) 
+
+
+#QNO3-SOLUTION:
+numbers = [5, 10, 15, 20, 25] 
+#List comprehension to keep only numbers greater than 15
+new_list = [x for x in numbers if x > 15]
+print(new_list) 
+
+
+#QNO4-SOLUTION:
+import json
+cities_dict = {
+    "New York": 8419000,
+    "Tokyo": 13960000,
+    "Paris": 2148000
+}
+
+#Save it to "cities.json"
+with open("cities.json", "w") as f: 
+    json.dump(cities_dict, f, indent=4) 
+
+#Load the JSON and print each city and its population 
+with open("cities.json", "r") as f: 
+    data = json.load(f) 
+    print("Initial Data:")
+    for city, pop in data.items():
+        print(f"City: {city}, Population: {pop}") 
+
+#Ask the user for a new city & its population 
+new_city = input("\nEnter a new city: ")
+new_pop = int(input(f"Enter population for {new_city}: "))
+
+#Update this info in the JSON file
+data[new_city] = new_pop # Update the dictionary in memory
+with open("cities.json", "w") as f:
+    json.dump(data, f, indent=4) 
+
+#Load the file again and print the FINAL updated list
+print("\n--- FINAL UPDATED LIST FROM FILE ---")
+with open("cities.json", "r") as f: 
+    final_data = json.load(f) 
+    for city, pop in final_data.items():
+        print(f"City: {city}, Population: {pop}") 
+
+
+#QNO5-SOLUTION:
+# Try to open "data.txt" in read mode
+try:
+    with open("data.txt", "r") as f:
+        print(f.read())
+# Catch the exception if the file doesn't exist
+except FileNotFoundError: 
+    print("File not found!") 
